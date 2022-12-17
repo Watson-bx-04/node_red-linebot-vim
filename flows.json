@@ -260,11 +260,11 @@
         "type": "http in",
         "z": "8a400ed1add1fbd9",
         "name": "",
-        "url": "/debug",
+        "url": "/test",
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 390,
+        "x": 380,
         "y": 40,
         "wires": [
             [
@@ -372,8 +372,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
-        "y": 180,
+        "x": 130,
+        "y": 300,
         "wires": [
             [
                 "fd32b96bb8f421b1"
@@ -391,8 +391,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 180,
+        "x": 320,
+        "y": 300,
         "wires": [
             [
                 "8e62b7d862456a4e",
@@ -409,8 +409,8 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 550,
-        "y": 120,
+        "x": 570,
+        "y": 280,
         "wires": []
     },
     {
@@ -418,8 +418,8 @@
         "type": "http response",
         "z": "8b3dd138d1c2403f",
         "name": "",
-        "x": 530,
-        "y": 180,
+        "x": 550,
+        "y": 320,
         "wires": []
     },
     {
@@ -438,8 +438,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 1000,
-        "y": 380,
+        "x": 1020,
+        "y": 500,
         "wires": [
             [
                 "a28b9d6f73d90c43"
@@ -455,8 +455,8 @@
         "tosidebar": true,
         "console": false,
         "complete": "true",
-        "x": 1170,
-        "y": 380,
+        "x": 1190,
+        "y": 500,
         "wires": []
     },
     {
@@ -469,8 +469,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 750,
-        "y": 480,
+        "x": 770,
+        "y": 600,
         "wires": []
     },
     {
@@ -492,8 +492,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 480,
+        "x": 470,
+        "y": 600,
         "wires": [
             [
                 "7e023574631c2a4e",
@@ -520,8 +520,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 320,
+        "x": 470,
+        "y": 440,
         "wires": [
             [
                 "0e2cd9ea35d37fc3"
@@ -547,8 +547,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 220,
+        "x": 650,
+        "y": 380,
         "wires": [
             [
                 "828b18c6f482caf3"
@@ -570,8 +570,8 @@
         "timeout": "",
         "optout-learning": false,
         "persist-session-id": false,
-        "x": 390,
-        "y": 400,
+        "x": 410,
+        "y": 520,
         "wires": [
             [
                 "85796c37ba6fd476"
@@ -583,18 +583,189 @@
         "type": "function",
         "z": "8b3dd138d1c2403f",
         "name": "createReplyMessage",
-        "func": "//flowから取り出す\nvar output_text = flow.get(\"text\");\n\nvar post_request = {\n    \"headers\": {\n        \"content-type\": \"application/json; charset=UTF-8\",\n        \"Authorization\": \" Bearer \" + \"{***}\"\n    },\n    \"payload\": {\n        //\"replyToken\": msg.payload.events[0].replyToken,\n        \"replyToken\": flow.get(\"replyToken\"),\n        \"messages\": [\n            {\n                \"type\": \"text\",\n                \"text\": msg.payload.optext\n            },\n            {\n                \"type\": \"template\",\n                \"altText\": \"this is a buttons template\",\n                \"template\": {\n                    \"type\": \"buttons\",\n                    \"title\": \"ピザの種類\",\n                    \"text\": \"おすすめ\",\n                    \"actions\": [\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"マルゲリータ\",\n                            \"text\": \"マルゲリータ\",\n                        },\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"シーフード\",\n                            \"text\": \"シーフード\"\n                        },\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"ペパロニ\",\n                            \"text\": \"ペパロニ\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n};\n\nreturn post_request;",
+        "func": "//flowから取り出す\nvar output_text = flow.get(\"text\");\n\nvar post_request = {\n    \"headers\": {\n        \"content-type\": \"application/json; charset=UTF-8\",\n        \"Authorization\": \" Bearer \" + \"{***}\"\n    },\n    \"payload\": {\n        //\"replyToken\": msg.payload.events[0].replyToken,\n        \"replyToken\": flow.get(\"replyToken\"),\n        \"messages\": [\n            {\n                \"type\": \"text\",\n                \"text\": msg.payload.optext\n            },\n            {\n                \"type\": \"template\",\n                \"altText\": \"this is a buttons template\",\n                \"template\": {\n                    \"type\": \"buttons\",\n                    \"title\": \"ピザの種類\",\n                    \"text\": \"おすすめ\",\n                    \"actions\": [\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"マルゲリータ\",\n                            \"text\": \"マルゲリータ\"\n                        },\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"シーフード\",\n                            \"text\": \"シーフード\"\n                        },\n                        {\n                            \"type\": \"message\",\n                            \"label\": \"ペパロニ\",\n                            \"text\": \"ペパロニ\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n};\n\nreturn post_request;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 380,
+        "x": 800,
+        "y": 500,
         "wires": [
             [
                 "3746bff0b14d8124"
             ]
         ]
+    },
+    {
+        "id": "d61f5ed8b3e82163",
+        "type": "template",
+        "z": "8b3dd138d1c2403f",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"type\": \"flex\",\n    \"altText\": \"This is a Flex Message\",\n    \"contents\": {\n        \"type\": \"bubble\",\n        \"body\": {\n            \"type\": \"box\",\n            \"layout\": \"vertical\",\n            \"contents\": [\n                {\n                    \"type\": \"text\",\n                    \"text\": \"Hello,\"\n                },\n                {\n                    \"type\": \"text\",\n                    \"text\": \"World!\"\n                }\n            ]\n        }\n    }\n}",
+        "output": "str",
+        "x": 720,
+        "y": 80,
+        "wires": [
+            [
+                "558d47f900963937"
+            ]
+        ]
+    },
+    {
+        "id": "f0b94937087a7dc9",
+        "type": "change",
+        "z": "8b3dd138d1c2403f",
+        "name": "type: template の場合",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"type\":\"template\",\"altText\":\"this is a buttons template\",\"template\":{\"type\":\"buttons\",\"title\":\"ピザの種類\",\"text\":\"おすすめ\",\"actions\":[{\"type\":\"message\",\"label\":\"マルゲリータ\",\"text\":\"マルゲリータ\"},{\"type\":\"message\",\"label\":\"シーフード\",\"text\":\"シーフード\"},{\"type\":\"message\",\"label\":\"ペパロニ\",\"text\":\"ペパロニ\"}]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "558d47f900963937",
+                "a60babf9dbee83d3"
+            ]
+        ]
+    },
+    {
+        "id": "a60babf9dbee83d3",
+        "type": "debug",
+        "z": "8b3dd138d1c2403f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "017e4cb8d87b5401",
+        "type": "switch",
+        "z": "8b3dd138d1c2403f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "p",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "p",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "f0b94937087a7dc9"
+            ],
+            [
+                "558d47f900963937"
+            ]
+        ]
+    },
+    {
+        "id": "e0cdca791cb4070d",
+        "type": "change",
+        "z": "8b3dd138d1c2403f",
+        "name": "type: image の場合",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"type\":\"image\",\"originalContentUrl\":\"https://pbs.twimg.com/profile_images/1165566424699457537/IYBnJ1i5_400x400.jpg\",\"previewImageUrl\":\"https://pbs.twimg.com/profile_images/1165566424699457537/IYBnJ1i5_400x400.jpg\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b176dbe650132e4",
+        "type": "change",
+        "z": "8b3dd138d1c2403f",
+        "name": "type: flex の場合",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"type\":\"flex\",\"altText\":\"This is a Flex Message\",\"contents\":{\"type\":\"bubble\",\"body\":{\"type\":\"box\",\"layout\":\"vertical\",\"contents\":[{\"type\":\"text\",\"text\":\"Hello,\"},{\"type\":\"text\",\"text\":\"World!\"}]}}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "39272952bdbf5b61",
+        "type": "Webhook",
+        "z": "8b3dd138d1c2403f",
+        "name": "",
+        "url": "/debug",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "017e4cb8d87b5401"
+            ]
+        ]
+    },
+    {
+        "id": "558d47f900963937",
+        "type": "ReplyMessage",
+        "z": "8b3dd138d1c2403f",
+        "name": "",
+        "replyMessage": "",
+        "x": 740,
+        "y": 140,
+        "wires": []
     }
 ]
