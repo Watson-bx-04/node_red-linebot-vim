@@ -825,5 +825,15 @@
         "x": 510,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "38d91126812c36e1",
+        "type": "comment",
+        "z": "8b3dd138d1c2403f",
+        "name": "Line Dev の endpoint の更新も忘れるな",
+        "info": "",
+        "x": 1010,
+        "y": 260,
+        "wires": []
     }
 ]
