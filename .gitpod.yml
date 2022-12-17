@@ -1,6 +1,6 @@
 
 tasks:
-  - command: "npm install -g --unsafe-perm node-red node-red-node-watson && node-red flows.json"
+  - command: "npm install -g --unsafe-perm node-red node-red-node-watson node-red-contrib-line-messaging-api && node-red flows.json"
     name: Node-RED
 # Ports to expose on workspace startup (optional)
 ports:
